@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maha OS | Sovereign Defense Grid</title>
+    <meta name="description" content="Intercept algorithmic colonization. A high-precision AI ingredient scanner and biometric ledger to enforce your biological sovereignty.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'maha-gold': '#D4AF37',
+                        'maha-rust': '#B7410E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1c1917 1px, transparent 1px), linear-gradient(to bottom, #1c1917 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            background-color: #000000;
+        }
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(28, 25, 23, 0.5) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(28, 25, 23, 0.5) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="text-stone-300 font-sans antialiased min-h-screen flex flex-col relative selection:bg-maha-rust selection:text-white">
+    
+    <!-- Background Grid -->
+    <div class="absolute inset-0 bg-grid pointer-events-none z-0"></div>
+
+    <!-- Header -->
+    <header class="relative z-10 border-b border-stone-800 bg-black/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <i data-lucide="cpu" class="w-6 h-6 text-stone-100"></i>
+                <span class="font-black text-2xl tracking-tighter text-stone-100 uppercase">Maha OS</span>
+            </div>
+            <div class="font-mono text-[10px] sm:text-xs text-maha-gold border border-maha-gold/30 bg-maha-gold/10 px-3 py-1.5 rounded-sm flex items-center gap-2 uppercase tracking-widest">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                <span class="hidden sm:inline">Status: </span>Secure
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="relative z-10 flex-grow flex flex-col justify-center items-center px-6 py-24 sm:py-32">
+        <div class="max-w-4xl mx-auto text-center flex flex-col items-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 border border-stone-800 bg-stone-900/50 text-stone-400 font-mono text-xs uppercase tracking-widest mb-8">
+                <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+                System Initialization Sequence
+            </div>
+            
+            <h1 class="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter text-stone-100 mb-6 uppercase leading-[0.9]">
+                Intercept Algorithmic <br class="hidden md:block" />
+                <span class="text-maha-rust">Colonization.</span>
+            </h1>
+            
+            <p class="text-base sm:text-lg md:text-xl text-stone-400 font-mono max-w-2xl mb-12 leading-relaxed">
+                A high-precision AI ingredient scanner and biometric ledger to enforce your biological sovereignty.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a href="https://play.google.com/store/apps/details?id=com.maha.os" class="group bg-maha-gold text-black font-black uppercase tracking-widest text-sm px-8 py-5 flex items-center justify-center gap-3 hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.15)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+                    <i data-lucide="smartphone" class="w-5 h-5 transition-transform group-hover:-translate-y-0.5"></i>
+                    Download for Android
+                </a>
+                <a href="/app" class="group border border-stone-700 bg-black text-stone-300 font-mono uppercase tracking-widest text-sm px-8 py-5 flex items-center justify-center gap-3 hover:border-stone-500 hover:text-white transition-all duration-300">
+                    <i data-lucide="terminal-square" class="w-5 h-5 transition-transform group-hover:scale-110"></i>
+                    Initialize Web Node
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Feature Grid -->
+    <section class="relative z-10 border-t border-stone-800 bg-stone-950/80 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-6 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 md:divide-x divide-stone-800">
+                
+                <!-- Feature 1 -->
+                <div class="flex flex-col items-start md:pr-12">
+                    <div class="p-3 bg-maha-rust/10 border border-maha-rust/30 mb-6">
+                        <i data-lucide="scan-line" class="w-6 h-6 text-maha-rust"></i>
+                    </div>
+                    <h3 class="text-xl font-black uppercase text-stone-100 mb-3 tracking-tight">Kinetic Scanner</h3>
+                    <p class="text-sm font-mono text-stone-500 leading-relaxed">
+                        AI label scanning in milliseconds to detect seed oils, endocrine disruptors, and hostile toxins in real-time.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="flex flex-col items-start md:px-12">
+                    <div class="p-3 bg-maha-gold/10 border border-maha-gold/30 mb-6">
+                        <i data-lucide="lock" class="w-6 h-6 text-maha-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-black uppercase text-stone-100 mb-3 tracking-tight">Zero-Payload Privacy</h3>
+                    <p class="text-sm font-mono text-stone-500 leading-relaxed">
+                        Local, ephemeral processing. Your biological and health data remains strictly encrypted on your personal node.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="flex flex-col items-start md:pl-12">
+                    <div class="p-3 bg-stone-800 border border-stone-700 mb-6">
+                        <i data-lucide="activity" class="w-6 h-6 text-stone-300"></i>
+                    </div>
+                    <h3 class="text-xl font-black uppercase text-stone-100 mb-3 tracking-tight">Biometric Telemetry</h3>
+                    <p class="text-sm font-mono text-stone-500 leading-relaxed">
+                        Correlate daily protocols with HRV, Glucose, and Resting Heart Rate to establish an unbreakable baseline.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-stone-800 bg-black">
+        <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 font-mono text-xs text-stone-600 uppercase tracking-widest">
+                <i data-lucide="shield" class="w-4 h-4"></i>
+                &copy; 2026 Maha Strategies LLC
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 font-mono text-xs uppercase tracking-widest">
+                <a href="/privacy-policy" class="text-stone-500 hover:text-maha-gold transition-colors">Privacy Policy</a>
+                <a href="/medical-disclaimer" class="text-stone-500 hover:text-maha-gold transition-colors">Medical Disclaimer</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
