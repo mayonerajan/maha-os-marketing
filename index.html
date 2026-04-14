@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maha OS | Sovereign Defense Grid</title>
-    <meta name="description" content="Intercept algorithmic colonization. A high-precision AI ingredient scanner and biometric ledger to enforce your biological sovereignty.">
+    <title>Maha OS | Biological Sovereignty</title>
+    <meta name="description" content="Take back control of your health. A privacy-first ecosystem to eliminate toxins, optimize your metabolism, and find your tribe.">
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -20,139 +18,174 @@
                     colors: {
                         'maha-gold': '#D4AF37',
                         'maha-rust': '#B7410E',
+                        'maha-dark': '#0A0A0A',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace'],
-                    },
-                    backgroundImage: {
-                        'grid-pattern': "linear-gradient(to right, #1c1917 1px, transparent 1px), linear-gradient(to bottom, #1c1917 1px, transparent 1px)",
                     }
                 }
             }
         }
     </script>
 
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-
-    <style>
-        body {
-            background-color: #000000;
-        }
-        .bg-grid {
-            background-size: 40px 40px;
-            background-image: linear-gradient(to right, rgba(28, 25, 23, 0.5) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(28, 25, 23, 0.5) 1px, transparent 1px);
-        }
-    </style>
 </head>
-<body class="text-stone-300 font-sans antialiased min-h-screen flex flex-col relative selection:bg-maha-rust selection:text-white">
+<body class="bg-maha-dark text-stone-300 font-sans antialiased min-h-screen flex flex-col selection:bg-maha-gold selection:text-black">
     
-    <!-- Background Grid -->
-    <div class="absolute inset-0 bg-grid pointer-events-none z-0"></div>
-
-    <!-- Header -->
-    <header class="relative z-10 border-b border-stone-800 bg-black/80 backdrop-blur-md">
+    <header class="sticky top-0 z-50 border-b border-stone-800 bg-maha-dark/90 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <i data-lucide="cpu" class="w-6 h-6 text-stone-100"></i>
-                <span class="font-black text-2xl tracking-tighter text-stone-100 uppercase">Maha OS</span>
+                <i data-lucide="hexagon" class="w-7 h-7 text-maha-gold"></i>
+                <span class="font-black text-2xl tracking-tight text-stone-100">Maha OS</span>
             </div>
-            <div class="font-mono text-[10px] sm:text-xs text-maha-gold border border-maha-gold/30 bg-maha-gold/10 px-3 py-1.5 rounded-sm flex items-center gap-2 uppercase tracking-widest">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
-                <span class="hidden sm:inline">Status: </span>Secure
+            <div class="text-xs font-medium text-maha-gold bg-maha-gold/10 px-4 py-2 rounded-full border border-maha-gold/20 flex items-center gap-2 uppercase tracking-wide">
+                <div class="w-2 h-2 rounded-full bg-maha-gold animate-pulse"></div>
+                v1.0 Live
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <main class="relative z-10 flex-grow flex flex-col justify-center items-center px-6 py-24 sm:py-32">
-        <div class="max-w-4xl mx-auto text-center flex flex-col items-center">
-            <div class="inline-flex items-center gap-2 px-3 py-1 border border-stone-800 bg-stone-900/50 text-stone-400 font-mono text-xs uppercase tracking-widest mb-8">
-                <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
-                System Initialization Sequence
+    <main class="relative flex-grow flex items-center px-6 py-20 lg:py-32">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div class="flex flex-col items-start text-left space-y-8">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-stone-700 bg-stone-800/50 text-stone-300 text-xs font-semibold uppercase tracking-wider">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-maha-rust"></i>
+                    Privacy-First Health Ecosystem
+                </div>
+                
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter text-white leading-[1.05]">
+                    Your Body is a <br>
+                    <span class="text-maha-gold">Sovereign State.</span><br>
+                    Protect it.
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-stone-400 max-w-xl leading-relaxed">
+                    Maha OS is a decentralized ecosystem designed to help you eliminate industrial toxins, optimize your metabolism, and find your tribe—all without being tracked by the algorithms that want you sick.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-4">
+                    <a href="https://play.google.com/store/apps/details?id=com.maha.os" class="group bg-maha-gold text-black font-bold px-8 py-4 rounded-lg flex items-center justify-center gap-3 hover:bg-white transition-all duration-300 shadow-lg shadow-maha-gold/20">
+                        <i data-lucide="smartphone" class="w-5 h-5"></i>
+                        Get the Android App
+                    </a>
+                    <a href="https://app.maha-os.com" class="group bg-stone-900 border border-stone-700 text-stone-200 font-bold px-8 py-4 rounded-lg flex items-center justify-center gap-3 hover:border-stone-500 hover:text-white transition-all duration-300">
+                        <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                        Open Web Dashboard
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative w-full aspect-square lg:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-stone-800">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200" alt="Maha OS Dashboard Visualization" class="object-cover w-full h-full opacity-80 mix-blend-lighten">
+                <div class="absolute inset-0 bg-gradient-to-t from-maha-dark via-transparent to-transparent"></div>
             </div>
             
-            <h1 class="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter text-stone-100 mb-6 uppercase leading-[0.9]">
-                Intercept Algorithmic <br class="hidden md:block" />
-                <span class="text-maha-rust">Colonization.</span>
-            </h1>
-            
-            <p class="text-base sm:text-lg md:text-xl text-stone-400 font-mono max-w-2xl mb-12 leading-relaxed">
-                A high-precision AI ingredient scanner and biometric ledger to enforce your biological sovereignty.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                <a href="https://play.google.com/store/apps/details?id=com.maha.os" class="group bg-maha-gold text-black font-black uppercase tracking-widest text-sm px-8 py-5 flex items-center justify-center gap-3 hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.15)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-                    <i data-lucide="smartphone" class="w-5 h-5 transition-transform group-hover:-translate-y-0.5"></i>
-                    Download for Android
-                </a>
-                <a href="https://app.maha-os.com" class="group border border-stone-700 bg-black text-stone-300 font-mono uppercase tracking-widest text-sm px-8 py-5 flex items-center justify-center gap-3 hover:border-stone-500 hover:text-white transition-all duration-300">
-                    <i data-lucide="terminal-square" class="w-5 h-5 transition-transform group-hover:scale-110"></i>
-                    Initialize Web Node
-                </a>
-            </div>
         </div>
     </main>
 
-    <!-- Feature Grid -->
-    <section class="relative z-10 border-t border-stone-800 bg-stone-950/80 backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-6 py-20">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 md:divide-x divide-stone-800">
+    <section class="bg-stone-950 py-24 border-t border-stone-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight mb-4">The Ecosystem Modules</h2>
+                <p class="text-stone-400 max-w-2xl mx-auto text-lg">Tools designed to serve your biology, not capture your attention.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
-                <!-- Feature 1 -->
-                <div class="flex flex-col items-start md:pr-12">
-                    <div class="p-3 bg-maha-rust/10 border border-maha-rust/30 mb-6">
-                        <i data-lucide="scan-line" class="w-6 h-6 text-maha-rust"></i>
+                <div class="bg-stone-900 border border-stone-800 rounded-2xl overflow-hidden group hover:border-maha-rust transition-colors duration-300">
+                    <div class="h-48 w-full relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800" alt="Food Label Scanner" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-60">
                     </div>
-                    <h3 class="text-xl font-black uppercase text-stone-100 mb-3 tracking-tight">Kinetic Scanner</h3>
-                    <p class="text-sm font-mono text-stone-500 leading-relaxed">
-                        AI label scanning in milliseconds to detect seed oils, endocrine disruptors, and hostile toxins in real-time.
-                    </p>
+                    <div class="p-8">
+                        <div class="w-12 h-12 bg-maha-rust/10 text-maha-rust rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="scan-line" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Food & Label Scanner</h3>
+                        <p class="text-stone-400 leading-relaxed">Use your camera to instantly identify "The Hateful Eight" seed oils and hidden sugars. A cognitive circuit breaker for the modern grocery store.</p>
+                    </div>
                 </div>
 
-                <!-- Feature 2 -->
-                <div class="flex flex-col items-start md:px-12">
-                    <div class="p-3 bg-maha-gold/10 border border-maha-gold/30 mb-6">
-                        <i data-lucide="lock" class="w-6 h-6 text-maha-gold"></i>
+                <div class="bg-stone-900 border border-stone-800 rounded-2xl overflow-hidden group hover:border-maha-gold transition-colors duration-300">
+                    <div class="h-48 w-full relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Biohacking Data" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-60">
                     </div>
-                    <h3 class="text-xl font-black uppercase text-stone-100 mb-3 tracking-tight">Zero-Payload Privacy</h3>
-                    <p class="text-sm font-mono text-stone-500 leading-relaxed">
-                        Local, ephemeral processing. Your biological and health data remains strictly encrypted on your personal node.
-                    </p>
+                    <div class="p-8">
+                        <div class="w-12 h-12 bg-maha-gold/10 text-maha-gold rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="activity" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Biohacking Dashboard</h3>
+                        <p class="text-stone-400 leading-relaxed">A centralized view of your "Unbreakable Baseline." Correlate your HRV, Glucose, and sleep data locally, without sending telemetry to the cloud.</p>
+                    </div>
                 </div>
 
-                <!-- Feature 3 -->
-                <div class="flex flex-col items-start md:pl-12">
-                    <div class="p-3 bg-stone-800 border border-stone-700 mb-6">
-                        <i data-lucide="activity" class="w-6 h-6 text-stone-300"></i>
+                <div class="bg-stone-900 border border-stone-800 rounded-2xl overflow-hidden group hover:border-stone-500 transition-colors duration-300">
+                    <div class="h-48 w-full relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1530133532239-eda6f53f159c?auto=format&fit=crop&q=80&w=800" alt="Metabolic Watchtower" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-60">
                     </div>
-                    <h3 class="text-xl font-black uppercase text-stone-100 mb-3 tracking-tight">Biometric Telemetry</h3>
-                    <p class="text-sm font-mono text-stone-500 leading-relaxed">
-                        Correlate daily protocols with HRV, Glucose, and Resting Heart Rate to establish an unbreakable baseline.
-                    </p>
+                    <div class="p-8">
+                        <div class="w-12 h-12 bg-stone-800 text-stone-300 rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="bell-ring" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">The Watchtower</h3>
+                        <p class="text-stone-400 leading-relaxed">Real-time alerts on your metabolic health. It monitors your biological data and warns you when your system is under stress or drifting from optimal.</p>
+                    </div>
+                </div>
+
+                <div class="bg-stone-900 border border-stone-800 rounded-2xl overflow-hidden group hover:border-maha-gold transition-colors duration-300">
+                    <div class="h-48 w-full relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&q=80&w=800" alt="Fireteam Community" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 opacity-60">
+                    </div>
+                    <div class="p-8">
+                        <div class="w-12 h-12 bg-maha-gold/10 text-maha-gold rounded-xl flex items-center justify-center mb-6">
+                            <i data-lucide="users" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Fireteam Finder</h3>
+                        <p class="text-stone-400 leading-relaxed">Don't go solo. Connect with local "Sovereign Cells"—vetted community members who prioritize metabolic health and biological freedom.</p>
+                    </div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="relative z-10 border-t border-stone-800 bg-black">
-        <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2 font-mono text-xs text-stone-600 uppercase tracking-widest">
-                <i data-lucide="shield" class="w-4 h-4"></i>
+    <section class="py-24 bg-maha-dark">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-black text-white mb-12">The Maha Difference</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6">
+                    <i data-lucide="lock" class="w-8 h-8 text-stone-400 mx-auto mb-4"></i>
+                    <h4 class="text-lg font-bold text-white mb-2">Zero-Payload Privacy</h4>
+                    <p class="text-sm text-stone-500">Your data stays on your device. We don't sell your biology to advertisers.</p>
+                </div>
+                <div class="p-6">
+                    <i data-lucide="shield" class="w-8 h-8 text-stone-400 mx-auto mb-4"></i>
+                    <h4 class="text-lg font-bold text-white mb-2">Metabolic Defense</h4>
+                    <p class="text-sm text-stone-500">Tuned specifically to combat industrial food toxins and endocrine disruptors.</p>
+                </div>
+                <div class="p-6">
+                    <i data-lucide="brain-circuit" class="w-8 h-8 text-stone-400 mx-auto mb-4"></i>
+                    <h4 class="text-lg font-bold text-white mb-2">Cognitive Focus</h4>
+                    <p class="text-sm text-stone-500">Built with "anti-engagement" architecture so the app serves you, not the reverse.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-stone-900 bg-stone-950">
+        <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 text-sm font-semibold text-stone-500">
+                <i data-lucide="hexagon" class="w-5 h-5 text-maha-gold"></i>
                 &copy; 2026 Maha Strategies LLC
             </div>
-            <div class="flex flex-wrap justify-center gap-6 font-mono text-xs uppercase tracking-widest">
-                <a href="https://app.maha-os.com/privacy-policy" class="text-stone-500 hover:text-maha-gold transition-colors">Privacy Policy</a>
-                <a href="https://app.maha-os.com/medical-disclaimer" class="text-stone-500 hover:text-maha-gold transition-colors">Medical Disclaimer</a>
+            <div class="flex flex-wrap justify-center gap-8 text-sm font-medium">
+                <a href="#" class="text-stone-500 hover:text-maha-gold transition-colors">The Maha Principle Blueprint</a>
+                <a href="#" class="text-stone-500 hover:text-maha-gold transition-colors">Join 43k+ Members in our Lab</a>
+                <a href="#" class="text-stone-500 hover:text-maha-gold transition-colors">Privacy Policy</a>
             </div>
         </div>
     </footer>
 
-    <!-- Initialize Icons -->
     <script>
         lucide.createIcons();
     </script>
