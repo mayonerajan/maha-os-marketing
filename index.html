@@ -237,53 +237,65 @@
         // Render UI Elements
         lucide.createIcons();
 
-        // Initialize Supabase Client
-        // IMPORTANT: Replace these with your actual Project URL and Anon Key before deploying
-        const supabaseUrl = 'https://uhwuullakihgszxhiygz.supabase.co';
-        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVod3V1bGxha2loZ3N6eGhpeWd6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MTUzODksImV4cCI6MjA4ODI5MTM4OX0.XIM8TVpajmdm2Vv4UGmkgSiXjgK1j7C_ZWCoQcjOpFQ';
-        const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
-
-        // iOS Waitlist Form Kinetic Handler
+        // The Kinetic Handler
         document.getElementById('ios-waitlist-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
+            // 1. ABSOLUTE PRIORITY: Stop the page refresh immediately
+            e.preventDefault(); 
+        
             const emailInput = document.getElementById('waitlist-email');
             const submitBtn = document.getElementById('waitlist-submit');
             const statusText = document.getElementById('waitlist-status');
-            
+        
             const email = emailInput.value;
-            
-            // UI Feedback: Lock the button during transmission
+        
+            // 2. Lock UI
             submitBtn.innerText = 'WAIT...';
             submitBtn.disabled = true;
             submitBtn.classList.add('opacity-50');
-
-            // Transmit payload to Supabase Database
-            const { data, error } = await supabase
-                .from('ios_vanguard_waitlist')
-                .insert([{ email: email }]);
-
             statusText.classList.remove('hidden');
+            statusText.classList.remove('text-maha-gold', 'text-maha-rust');
+            statusText.classList.add('text-stone-500');
+            statusText.innerText = '[SYSTEM INITIALIZING] Attempting connection...';
+
+            try {
+                const supabaseUrl = 'https://uhwuullakihgszxhiygz.supabase.co';
+                const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVod3V1bGxha2loZ3N6eGhpeWd6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MTUzODksImV4cCI6MjA4ODI5MTM4OX0.XIM8TVpajmdm2Vv4UGmkgSiXjgK1j7C_ZWCoQcjOpFQ';
             
-            if (error) {
-                // Failure State
-                statusText.innerText = '[SYSTEM ERROR] Data rejected. You may already be initialized.';
-                statusText.classList.remove('text-maha-gold');
+                // Initialize Client INSIDE the event listener
+                const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+                // Transmit payload
+                const { data, error } = await supabase
+                    .from('ios_vanguard_waitlist')
+                    .insert([{ email: email }]);
+
+                if (error) {
+                    console.error("Supabase Rejection:", error);
+                    statusText.innerText = '[SYSTEM ERROR] Data rejected. You may already be initialized.';
+                    statusText.classList.remove('text-stone-500');
+                    statusText.classList.add('text-maha-rust');
+                
+                    submitBtn.innerText = 'RETRY';
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-50');
+                } else {
+                    statusText.innerText = '[NODE SECURED] You are registered on the iOS Vanguard list.';
+                    statusText.classList.remove('text-stone-500');
+                    statusText.classList.add('text-maha-gold');
+                
+                    emailInput.value = '';
+                    submitBtn.innerText = 'SECURED';
+                }
+            } catch (fatalError) {
+                // 3. The Diagnostic Net: Catch CDN blockers without refreshing the page
+                console.error("Fatal Architecture Error:", fatalError);
+                statusText.innerText = '[FATAL ERROR] Connection blocked by browser shields. Disable to join Vanguard.';
+                statusText.classList.remove('text-stone-500');
                 statusText.classList.add('text-maha-rust');
-                
-                submitBtn.innerText = 'RETRY';
-                submitBtn.disabled = false;
-                submitBtn.classList.remove('opacity-50');
-            } else {
-                // Success State
-                statusText.innerText = '[NODE SECURED] You are registered on the iOS Vanguard list.';
-                statusText.classList.remove('text-maha-rust');
-                statusText.classList.add('text-maha-gold');
-                
-                emailInput.value = '';
-                submitBtn.innerText = 'SECURED';
+            
+                submitBtn.innerText = 'SYSTEM HALT';
             }
         });
-    </script>
+</script>
 </body>
 </html>
