@@ -30,6 +30,7 @@
     </script>
 
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body class="bg-maha-dark text-stone-300 font-sans antialiased min-h-screen flex flex-col selection:bg-maha-gold selection:text-black">
     
@@ -65,15 +66,41 @@
                     Maha OS is a decentralized ecosystem designed to help you eliminate industrial toxins, optimize your metabolism, and find your tribe—all without being tracked by the algorithms that want you sick.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-4">
-                    <a href="https://play.google.com/store/apps/details?id=com.maha.os" class="group bg-maha-gold text-black font-bold px-8 py-4 rounded-sm flex items-center justify-center gap-3 hover:bg-white transition-all duration-300 shadow-lg shadow-maha-gold/20 uppercase tracking-wide text-sm">
-                        <i data-lucide="smartphone" class="w-5 h-5"></i>
-                        Get the Android App
-                    </a>
-                    <a href="https://app.maha-os.com" class="group bg-stone-900 border border-stone-700 text-stone-200 font-bold px-8 py-4 rounded-sm flex items-center justify-center gap-3 hover:border-stone-500 hover:text-white transition-all duration-300 uppercase tracking-wide text-sm">
-                        <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
-                        Open Web Dashboard
-                    </a>
+                <div class="flex flex-col gap-6 w-full pt-4">
+                    
+                    <p class="text-[10px] font-mono text-stone-500 uppercase tracking-widest mb-[-12px]">
+                        Zero-Payload Architecture. 100% Local Processing. 
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 w-full">
+                        <a href="https://play.google.com/store/apps/details?id=com.maha.os" class="group bg-maha-gold text-black font-bold px-6 py-4 rounded-sm flex items-center justify-center gap-3 hover:bg-white transition-all duration-300 shadow-lg shadow-maha-gold/20 uppercase tracking-wide text-sm flex-grow">
+                            <i data-lucide="smartphone" class="w-5 h-5"></i>
+                            Initialize Local Node (Android)
+                        </a>
+                        <a href="https://app.maha-os.com" class="group bg-stone-900 border border-stone-700 text-stone-200 font-bold px-6 py-4 rounded-sm flex items-center justify-center gap-3 hover:border-stone-500 hover:text-white transition-all duration-300 uppercase tracking-wide text-sm whitespace-nowrap">
+                            <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                            Web Dashboard
+                        </a>
+                    </div>
+                
+                    <div class="border border-stone-800 bg-stone-900/50 p-5 rounded-sm relative overflow-hidden group hover:border-stone-700 transition-colors w-full lg:max-w-md">
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="w-2 h-2 rounded-full bg-maha-rust animate-pulse"></div>
+                            <span class="text-xs font-mono text-stone-300 uppercase tracking-widest">iOS Phantom Node</span>
+                        </div>
+                        <p class="text-xs text-stone-500 mb-4 leading-relaxed font-mono">
+                            Apple enforces a walled garden. Maha OS iOS bypass is currently in development. Submit your email to request initialization for the iOS Vanguard.
+                        </p>
+                        
+                        <form id="ios-waitlist-form" class="flex flex-col sm:flex-row gap-2 relative z-10">
+                            <input type="email" id="waitlist-email" required placeholder="Enter transmission address" class="flex-grow bg-black border border-stone-700 text-stone-300 px-4 py-2 text-sm focus:outline-none focus:border-maha-gold transition-colors font-mono placeholder:text-stone-700">
+                            <button type="submit" id="waitlist-submit" class="bg-stone-800 text-maha-gold border border-stone-700 px-6 py-2 text-sm font-bold uppercase tracking-wide hover:bg-maha-gold hover:text-black transition-colors whitespace-nowrap">
+                                Request
+                            </button>
+                        </form>
+                        <p id="waitlist-status" class="text-[10px] font-mono mt-3 hidden uppercase tracking-widest"></p>
+                    </div>
+
                 </div>
             </div>
 
@@ -207,7 +234,56 @@
     </footer>
 
     <script>
+        // Render UI Elements
         lucide.createIcons();
+
+        // Initialize Supabase Client
+        // IMPORTANT: Replace these with your actual Project URL and Anon Key before deploying
+        const supabaseUrl = 'YOUR_SUPABASE_PROJECT_URL';
+        const supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY';
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+        // iOS Waitlist Form Kinetic Handler
+        document.getElementById('ios-waitlist-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const emailInput = document.getElementById('waitlist-email');
+            const submitBtn = document.getElementById('waitlist-submit');
+            const statusText = document.getElementById('waitlist-status');
+            
+            const email = emailInput.value;
+            
+            // UI Feedback: Lock the button during transmission
+            submitBtn.innerText = 'WAIT...';
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-50');
+
+            // Transmit payload to Supabase Database
+            const { data, error } = await supabase
+                .from('ios_vanguard_waitlist')
+                .insert([{ email: email }]);
+
+            statusText.classList.remove('hidden');
+            
+            if (error) {
+                // Failure State
+                statusText.innerText = '[SYSTEM ERROR] Data rejected. You may already be initialized.';
+                statusText.classList.remove('text-maha-gold');
+                statusText.classList.add('text-maha-rust');
+                
+                submitBtn.innerText = 'RETRY';
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-50');
+            } else {
+                // Success State
+                statusText.innerText = '[NODE SECURED] You are registered on the iOS Vanguard list.';
+                statusText.classList.remove('text-maha-rust');
+                statusText.classList.add('text-maha-gold');
+                
+                emailInput.value = '';
+                submitBtn.innerText = 'SECURED';
+            }
+        });
     </script>
 </body>
 </html>
